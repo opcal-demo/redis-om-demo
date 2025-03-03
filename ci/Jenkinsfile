@@ -41,8 +41,8 @@ pipeline {
                                 fi
                             '''
                             sh 'start-docker.sh'
-                            sh 'docker ps'
                             sh 'ls /var/run/docker.sock'
+                            sh 'docker ps'
                             sh './mvnw -U clean compile'
                             sh 'docker image prune -f'
                             sh 'supervisorctl stop all'
