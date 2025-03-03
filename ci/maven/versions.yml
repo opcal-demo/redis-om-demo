@@ -1,0 +1,14 @@
+dependencies: #{#WORKSPACE}/ci/maven/dependencies.properties
+update-reports:
+  - #{#WORKSPACE}/target/reports/property-updates-aggregate-report.html
+  - #{#WORKSPACE}/target/site/property-updates-aggregate-report.html
+parent-reports:
+  - #{#WORKSPACE}/target/reports/parent-updates-report.html
+  - #{#WORKSPACE}/target/site/parent-updates-report.html
+version-registers:
+  - property-name: opcal-cloud-starter-parent.version
+    update-policy: INCREMENTAL
+    group-id: xyz.opcal.cloud
+    artifact-id: opcal-cloud-starter-parent
+  - property-name: redis-om.version
+    update-policy: LATEST

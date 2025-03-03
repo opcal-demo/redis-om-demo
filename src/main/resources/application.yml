@@ -1,0 +1,12 @@
+spring:
+  docker:
+    compose:
+      skip:
+        in-tests: false
+      stop:
+        command: down
+  data:
+    redis:
+      client-type: jedis
+      host: 127.0.0.1
+      port: 31379
