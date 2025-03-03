@@ -41,7 +41,7 @@ pipeline {
                                 fi
                             '''
                             sh 'start-docker.sh'
-                            sh './mvnw clean test'
+                            sh './mvnw -U clean test'
                             sh 'docker image prune -f'
                             sh 'supervisorctl stop all'
                             sh 'tar -C /var/lib/docker/ -czf /var/cache/docker/docker.tar.gz .'
