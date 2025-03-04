@@ -43,7 +43,7 @@ pipeline {
                             sh 'start-docker.sh'
                             sh 'ls /var/run/docker.sock'
                             sh 'docker ps'
-                            sh './mvnw -U clean compile'
+                            sh './mvnw -U clean test'
                             sh 'docker image prune -f'
                             sh 'supervisorctl stop all'
                             sh 'tar -C /var/lib/docker/ -czf /var/cache/docker/docker.tar.gz .'
