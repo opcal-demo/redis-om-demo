@@ -2,8 +2,16 @@ pipeline {
     agent {
         kubernetes {
             cloud 'kubernetes'
-            inheritFrom 'dind-jdk-17-build-nfs-cache'
+            inheritFrom 'dind-jdk-21-build-nfs-cache'
         }
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+
+    parameters {
+        choice choices: ['missing', 'weekly', 'always'], name: 'PULL_POLICY'
     }
 
     stages {
@@ -31,7 +39,7 @@ pipeline {
                 ],
                         defaultBranch: 'main',
                         maxCacheSize: 0) {
-                    container("dind-jdk-17") {
+                    container("dind-jdk-21") {
                         script {
                             sh '''
                                 if [ -f /var/cache/docker/docker.tar.gz ]; then
