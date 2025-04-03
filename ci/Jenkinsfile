@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'kubernetes'
-            inheritFrom 'dind-jdk-17-build'
+            inheritFrom 'dind-jdk-17-build-nfs-cache'
         }
     }
 
@@ -27,7 +27,6 @@ pipeline {
         stage('Test') {
             steps {
                 cache(caches: [
-                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: 'settings.xml', includes: '**/*', path: '/root/.m2'),
                         arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/var/cache/docker')
                 ],
                         defaultBranch: 'main',
