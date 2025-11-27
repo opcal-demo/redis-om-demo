@@ -11,4 +11,4 @@ version-registers:
     group-id: xyz.opcal.cloud
     artifact-id: opcal-cloud-starter-parent
   - property-name: redis-om.version
-    update-policy: LATEST
+    update-policy: MINOR
