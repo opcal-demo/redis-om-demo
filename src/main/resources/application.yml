@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   threads:
     virtual:
       enabled: true
@@ -13,5 +15,6 @@ spring:
         command: down
   data:
     redis:
+      client-type: jedis
       host: 127.0.0.1
       port: 6379
