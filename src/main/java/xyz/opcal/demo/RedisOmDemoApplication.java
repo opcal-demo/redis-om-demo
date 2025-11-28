@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.redis.om.spring.annotations.EnableRedisDocumentRepositories;
 import com.redis.om.spring.annotations.EnableRedisEnhancedRepositories;
 
-@EnableRedisEnhancedRepositories(basePackages = {"xyz.opcal.demo.repository.hashes", "xyz.opcal.demo.domain.hashes"})
-@EnableRedisDocumentRepositories(basePackages = {"xyz.opcal.demo.repository.documents", "xyz.opcal.demo.domain.doc"})
+@EnableRedisEnhancedRepositories(value = {"xyz.opcal.demo.repository.hashes"})
+@EnableRedisDocumentRepositories(value = {"xyz.opcal.demo.repository.documents"})
 @SpringBootApplication
 public class RedisOmDemoApplication {
 
