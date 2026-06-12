@@ -14,7 +14,7 @@
 
     <properties>
         <java.version>25</java.version>
-        <redis-om.version>2.0.5</redis-om.version>
+        <redis-om.version>2.0.6</redis-om.version>
         <jedis.version>7.3.0</jedis.version>
     </properties>
 
